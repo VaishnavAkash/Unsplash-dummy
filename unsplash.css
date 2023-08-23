@@ -1,32 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+
 *{
     box-sizing: border-box;
     font-size: 95%;
+    margin: 0;
+    padding:0;
 }
 
 #container{
     text-align: center;
-
 }
+main{
+    
+    background: url(https://i.ibb.co/M9LB3Kq/Glassmorphism-Background.png);
+    background-size:cover;
+    background-color:#eee;
+  }
 
 .heroText{
     font-size: 3em;
+    font-family: "Cinzel Decorative", cursive;
     margin-bottom: 15px;
+    padding-top: 40px;
 }
 
 .search-input{
-    width: 400px;
-    height: 30px;
-    padding: 5px;
-    border-radius: 4px;
+    width: 40%;
+    height: 50px;
+    padding: 0px 1rem;
+    border-radius: 30px;
+    outline: none;
+    text-align: center;
+    background-color: white;
+    box-sizing: 20px 20px 20px solid gray;
+    border: none;
+    font-size: 1.2rem;
     outline: none;
 }
 
-.search-btn{
-    width: 50px;
-    height: 30px;
-    background-color: aquamarine;
-    border: none;
+.searchBox{
+    padding: 30px;
 }
+
+.search-btn{
+    width: 8%;
+    height: 50px;
+    background-color: rgb(79, 243, 188);
+    border: none;
+    border-radius: 40px;
+    font-size: 1.3rem;
+}
+
+.photographer-name{
+    padding-top: 20px;
+}
+
 
 .info{
     color: gray;
@@ -35,10 +63,14 @@
 }
 
 #imageContainer{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 20px;
-    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    margin: 30px 30px;
+    gap: 50px;
 }
 
 .result-item{
@@ -69,4 +101,19 @@
 
 .hidden{
     display: none;
+}
+
+@media (width <= 700px) {
+    .searchBox{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    #searchInput{
+        width: 100%;
+    }
+    #searchBtn{
+        width: 30%;
+        margin: auto;
+    }
 }

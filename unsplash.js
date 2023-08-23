@@ -5,7 +5,9 @@ let lastPage = 0;
 const searchBtn = document.getElementById('searchBtn');
 
 searchBtn.onclick = makeSearch;
-
+document.addEventListener('keydown',(e)=>{
+    if(e.key=='Enter') makeSearch();
+})
 async function searchUnsplash(searchQuery) {
     const endpoint = `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=${maxImages}&page=${currentPage}&client_id=${apiKey}`;
     const resp = await fetch(endpoint);
@@ -18,7 +20,9 @@ async function searchUnsplash(searchQuery) {
 }
 async function makeSearch() {
     const searchText = document.getElementById('searchInput').value;
+    if(searchText=='') return ;
     const response= await searchUnsplash(searchText);
+        
     let htmlContent = '';
     response.results.forEach(eResp => {
         const url = eResp.urls.small;
@@ -29,7 +33,7 @@ async function makeSearch() {
         htmlContent += `
         <div>
             <a href='${unsplashLink}' targer="_blank">
-            <div class='result-item' style='background-image: url(${url})'></div>
+            <div class='result-item card' style='background-image: url(${url})'></div>
             </a>
             <p class= 'photographer-name'>
             <a href='${photographerPage}' target='_blank'>Photo by ${photographer}</a>
